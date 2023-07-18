@@ -1,11 +1,13 @@
-﻿// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
-
+﻿//  Задайте двумерный массив. 
+// Напишите программу, которая поменяет местами первую и последнюю строку массива.
 // Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
 // 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
-
+// В итоге получается вот такой массив:
+// 8 4 2 4
+// 5 9 2 3
+// 1 4 7 2
 
 int[,] matrix = new int[4, 4];
 
@@ -35,22 +37,21 @@ void FillMatrix(int[,] matr, int start, int end)
     }
   }
 }
-void GetArithmeticMean(int[,] matr)
+// Метод замены строк массива
+
+void Replace(int[,] array)
 {
-  
-  for (int i = 0; i < matr.GetLength(1); i++)
-  {
-  double sumCol = 0;
-  double arithmeticMean = 0;
-  for (int j = 0; j < matr.GetLength(0); j++)
-  {
-    sumCol += matr[j,i];
-  }
-   arithmeticMean = sumCol / matr.GetLength(0);
-   Console.WriteLine($"Среднее арифметическое {i}-го столбца равно {arithmeticMean}\t");
-  }
+int temp = 0;
+ for (int i = 0; i < array.GetLength(1); i++)
+ {
+   temp = array[array.GetLength(0) - 1, i];
+   array[array.GetLength(0) - 1, i] = array[0, i];
+   array[0, i] = temp;
+ }
 }
 
 FillMatrix(matrix, 1, 10);
 PrintMatrix(matrix);
-GetArithmeticMean(matrix);
+Console.WriteLine();
+Replace(matrix);
+PrintMatrix(matrix);
