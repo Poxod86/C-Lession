@@ -46,21 +46,21 @@ void FillMatrix(int[,] matr, int start, int end)
 }
 
 // нахождение максимального значения
-int MaxElem(int[,] array)
-{
-  int max = 0;
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-      if (array[i, j] > max)
-      {
-        max = array[i, j];
-      }
-    }
-  }
-  return max;
-}
+// int MaxElem(int[,] array)
+// {
+//   int max = 0;
+//   for (int i = 0; i < array.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//       if (array[i, j] > max)
+//       {
+//         max = array[i, j];
+//       }
+//     }
+//   }
+//   return max;
+// }
 
 // решение с библиотеками
 void CountElementsInMatrix(int[,] matrix, Dictionary<int, int> counter)
